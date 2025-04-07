@@ -1,7 +1,8 @@
 from sklearn.metrics import fbeta_score, precision_score, recall_score
-from sklearn.ensemble import RandomizedSearchCV, GridSearchCV, RandomForestClassifier
+from sklearn.model_selection import RandomizedSearchCV, GridSearchCV
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score
-from scipy.stats import randint
+from datetime import datetime
 
 
 # Optional: implement hyperparameter tuning.
@@ -23,12 +24,12 @@ def train_model(X_train, y_train):
     model = RandomForestClassifier(random_state=42)
 
     param_dist = {
-        "n_estimators": randint(50, 200),
-        "max_depth": randint(3, 20),
-        "min_samples_split": randint(2, 11),
-        "min_samples_leaf": randint(1, 11),
+        "n_estimators": range(50, 200, 20),
+        "max_depth": range(3, 20),
+        "min_samples_split": range(2, 50, 5),
+        "min_samples_leaf": range(5, 50, 5),
         "bootstrap": [True, False],
-        "max_features": ["auto", "sqrt", "log2"],
+        "max_features": ["sqrt", "log2"],
         "criterion": ["gini", "entropy"],
     }
 
@@ -36,13 +37,13 @@ def train_model(X_train, y_train):
     random_search.fit(X_train, y_train)
 
     # Use the best estimator from the random search
-    best_params = random_search.best_estimator_
+    best_params = random_search.best_params_
 
     param_grid = {
         "n_estimators": [
-            best_params["n_estimators"] - 10,
+            best_params["n_estimators"] - 5,
             best_params["n_estimators"],
-            best_params["n_estimators"] + 10,
+            best_params["n_estimators"] + 5,
         ],
         "max_depth": [best_params["max_depth"] - 2, best_params["max_depth"], best_params["max_depth"] + 2],
         "min_samples_split": [
