@@ -53,7 +53,7 @@ def training_pipeline():
     X_test, y_test, _, _ = process_data(test, cat_features, label="salary", training=False, encoder=encoder, lb=lb)
 
     # Train and save a model.
-    model = train_model(X_train, y_train)
+    model = train_model(X_train, y_train, fine_tuning=True)
     base_path = "model"
     os.makedirs(base_path, exist_ok=True)
     joblib.dump(model, os.path.join(base_path, "model.pkl"))
