@@ -32,10 +32,3 @@ jobs:
     - name: Test with pytest
       run: |
         pytest starter/starter --cov=. --cov-report=xml -v
-        
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v2
-      with:
-        verbose: true
-        fail_ci_if_error: true
-        
