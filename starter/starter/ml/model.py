@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 # Optional: implement hyperparameter tuning.
-def train_model(X_train, y_train):
+def train_model(X_train, y_train, fine_tuning=True):
     """
     Trains a machine learning model and returns it.
 
@@ -16,6 +16,9 @@ def train_model(X_train, y_train):
         Training data.
     y_train : np.array
         Labels.
+    fine_tuning : bool
+        Whether to perform hyperparameter tuning or not.
+        Default is True.
     Returns
     -------
     model
@@ -23,63 +26,67 @@ def train_model(X_train, y_train):
     """
     model = RandomForestClassifier(random_state=42)
 
-    param_dist = {
-        "n_estimators": range(50, 200, 20),
-        "max_depth": range(3, 20),
-        "min_samples_split": range(2, 50, 5),
-        "min_samples_leaf": range(5, 50, 5),
-        "bootstrap": [True, False],
-        "max_features": ["sqrt", "log2"],
-        "criterion": ["gini", "entropy"],
-    }
+    if fine_tuning:
+        param_dist = {
+            "n_estimators": range(50, 200, 20),
+            "max_depth": range(3, 20),
+            "min_samples_split": range(2, 50, 5),
+            "min_samples_leaf": range(5, 50, 5),
+            "bootstrap": [True, False],
+            "max_features": ["sqrt", "log2"],
+            "criterion": ["gini", "entropy"],
+        }
 
-    random_search = RandomizedSearchCV(model, param_distributions=param_dist, n_iter=100, cv=5, random_state=42)
-    random_search.fit(X_train, y_train)
+        random_search = RandomizedSearchCV(model, param_distributions=param_dist, n_iter=100, cv=5, random_state=42)
+        random_search.fit(X_train, y_train)
 
-    # Use the best estimator from the random search
-    best_params = random_search.best_params_
+        # Use the best estimator from the random search
+        best_params = random_search.best_params_
 
-    param_grid = {
-        "n_estimators": [
-            best_params["n_estimators"] - 5,
-            best_params["n_estimators"],
-            best_params["n_estimators"] + 5,
-        ],
-        "max_depth": [best_params["max_depth"] - 2, best_params["max_depth"], best_params["max_depth"] + 2],
-        "min_samples_split": [
-            best_params["min_samples_split"] - 1,
-            best_params["min_samples_split"],
-            best_params["min_samples_split"] + 1,
-        ],
-        "min_samples_leaf": [
-            best_params["min_samples_leaf"] - 1,
-            best_params["min_samples_leaf"],
-            best_params["min_samples_leaf"] + 1,
-        ],
-        "bootstrap": [best_params["bootstrap"]],
-        "max_features": [best_params["max_features"]],
-        "criterion": [best_params["criterion"]],
-    }
+        param_grid = {
+            "n_estimators": [
+                best_params["n_estimators"] - 5,
+                best_params["n_estimators"],
+                best_params["n_estimators"] + 5,
+            ],
+            "max_depth": [best_params["max_depth"] - 2, best_params["max_depth"], best_params["max_depth"] + 2],
+            "min_samples_split": [
+                best_params["min_samples_split"] - 1,
+                best_params["min_samples_split"],
+                best_params["min_samples_split"] + 1,
+            ],
+            "min_samples_leaf": [
+                best_params["min_samples_leaf"] - 1,
+                best_params["min_samples_leaf"],
+                best_params["min_samples_leaf"] + 1,
+            ],
+            "bootstrap": [best_params["bootstrap"]],
+            "max_features": [best_params["max_features"]],
+            "criterion": [best_params["criterion"]],
+        }
 
-    # Perform Grid Search
-    grid_search = GridSearchCV(model, param_grid=param_grid, cv=5)
-    grid_search.fit(X_train, y_train)
+        # Perform Grid Search
+        grid_search = GridSearchCV(model, param_grid=param_grid, cv=5)
+        grid_search.fit(X_train, y_train)
 
-    # Get the best parameters from Grid Search
-    final_best_params = grid_search.best_params_
+        # Get the best parameters from Grid Search
+        final_best_params = grid_search.best_params_
 
-    # Train the final model with the best parameters
-    model = RandomForestClassifier(
-        n_estimators=final_best_params["n_estimators"],
-        max_depth=final_best_params["max_depth"],
-        min_samples_split=final_best_params["min_samples_split"],
-        min_samples_leaf=final_best_params["min_samples_leaf"],
-        bootstrap=final_best_params["bootstrap"],
-        max_features=final_best_params["max_features"],
-        criterion=final_best_params["criterion"],
-        random_state=42,
-    )
-    model.fit(X_train, y_train)
+        # Train the final model with the best parameters
+        model = RandomForestClassifier(
+            n_estimators=final_best_params["n_estimators"],
+            max_depth=final_best_params["max_depth"],
+            min_samples_split=final_best_params["min_samples_split"],
+            min_samples_leaf=final_best_params["min_samples_leaf"],
+            bootstrap=final_best_params["bootstrap"],
+            max_features=final_best_params["max_features"],
+            criterion=final_best_params["criterion"],
+            random_state=42,
+        )
+        model.fit(X_train, y_train)
+    else:
+        # Train the model without hyperparameter tuning
+        model.fit(X_train, y_train)
     return model
 
 
