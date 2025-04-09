@@ -10,20 +10,28 @@ jobs:
 
     steps:
     - name: Checkout code
-    - uses: actions/checkout@v4
+      uses: actions/checkout@v4
     
     - name: Set up Python 3.8
       uses: actions/setup-python@v3
       with:
         python-version: '3.8'
         
-    - name: Install dependencies
+    - name: Install Miniconda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        auto-update-conda: true
+        python-version: '3.8'
+        
+    - name: Create Conda environment
       run: |
-        python -m pip install --upgrade pip
-        pip install pytest flake8 pytest-cov
+        conda create --name myenv python=3.8
+        conda activate myenv
+        conda install pytest flake8 pytest-cov
 
     - name: Lint with flake8
       run: |
+        conda activate myenv
         # stop the build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
@@ -31,11 +39,11 @@ jobs:
         
     - name: Test with pytest
       run: |
+        conda activate myenv
         pytest starter/starter --cov=. --cov-report=xml -v
         
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
+      uses: codecov/codecov-action@v2
       with:
         verbose: true
         fail_ci_if_error: true
-
