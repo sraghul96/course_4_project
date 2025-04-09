@@ -1,0 +1,396 @@
+Metrics for slice: age_data_slice
+	Slice Bucket: 0-18
+		Total: 211
+		<=50K counts: 211
+		>50K counts: 0
+		Precision: 1.0
+		Recall: 1.0
+		Fbeta: 1.0
+
+Metrics for slice: age_data_slice
+	Slice Bucket: 19-29
+		Total: 1727
+		<=50K counts: 1727
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: age_data_slice
+	Slice Bucket: 30-44
+		Total: 2495
+		<=50K counts: 2495
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: age_data_slice
+	Slice Bucket: 45-59
+		Total: 1564
+		<=50K counts: 1564
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: age_data_slice
+	Slice Bucket: 60+
+		Total: 516
+		<=50K counts: 516
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: marital_status_data_slice
+	Slice Bucket: Married
+		Total: 3068
+		<=50K counts: 3068
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: marital_status_data_slice
+	Slice Bucket: Divorced
+		Total: 883
+		<=50K counts: 883
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: marital_status_data_slice
+	Slice Bucket: Never-married
+		Total: 2181
+		<=50K counts: 2181
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: marital_status_data_slice
+	Slice Bucket: Separated
+		Total: 199
+		<=50K counts: 199
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: marital_status_data_slice
+	Slice Bucket: Widowed
+		Total: 182
+		<=50K counts: 182
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: race_data_slice
+	Slice Bucket:  White
+		Total: 5533
+		<=50K counts: 5533
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: race_data_slice
+	Slice Bucket:  Black
+		Total: 662
+		<=50K counts: 662
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: race_data_slice
+	Slice Bucket:  Asian-Pac-Islander
+		Total: 200
+		<=50K counts: 200
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: race_data_slice
+	Slice Bucket:  Amer-Indian-Eskimo
+		Total: 73
+		<=50K counts: 73
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: race_data_slice
+	Slice Bucket:  Other
+		Total: 45
+		<=50K counts: 45
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: sex_data_slice
+	Slice Bucket:  Male
+		Total: 4355
+		<=50K counts: 4355
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: sex_data_slice
+	Slice Bucket:  Female
+		Total: 2158
+		<=50K counts: 2158
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: country_data_slice
+	Slice Bucket: North America
+		Total: 6000
+		<=50K counts: 6000
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: country_data_slice
+	Slice Bucket: Central and South America
+		Total: 126
+		<=50K counts: 126
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: country_data_slice
+	Slice Bucket: Europe
+		Total: 102
+		<=50K counts: 102
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: country_data_slice
+	Slice Bucket: Asia
+		Total: 138
+		<=50K counts: 138
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: country_data_slice
+	Slice Bucket: Other
+		Total: 147
+		<=50K counts: 147
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: age_data_slice
+	Slice Bucket: 0-18
+		Total: 211
+		<=50K counts: 211
+		>50K counts: 0
+		Precision: 1.0
+		Recall: 1.0
+		Fbeta: 1.0
+
+Metrics for slice: age_data_slice
+	Slice Bucket: 19-29
+		Total: 1727
+		<=50K counts: 1727
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: age_data_slice
+	Slice Bucket: 30-44
+		Total: 2495
+		<=50K counts: 2495
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: age_data_slice
+	Slice Bucket: 45-59
+		Total: 1564
+		<=50K counts: 1564
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: age_data_slice
+	Slice Bucket: 60+
+		Total: 516
+		<=50K counts: 516
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: marital_status_data_slice
+	Slice Bucket: Married
+		Total: 3068
+		<=50K counts: 3068
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: marital_status_data_slice
+	Slice Bucket: Divorced
+		Total: 883
+		<=50K counts: 883
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: marital_status_data_slice
+	Slice Bucket: Never-married
+		Total: 2181
+		<=50K counts: 2181
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: marital_status_data_slice
+	Slice Bucket: Separated
+		Total: 199
+		<=50K counts: 199
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: marital_status_data_slice
+	Slice Bucket: Widowed
+		Total: 182
+		<=50K counts: 182
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: race_data_slice
+	Slice Bucket:  White
+		Total: 5533
+		<=50K counts: 5533
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: race_data_slice
+	Slice Bucket:  Black
+		Total: 662
+		<=50K counts: 662
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: race_data_slice
+	Slice Bucket:  Asian-Pac-Islander
+		Total: 200
+		<=50K counts: 200
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: race_data_slice
+	Slice Bucket:  Amer-Indian-Eskimo
+		Total: 73
+		<=50K counts: 73
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: race_data_slice
+	Slice Bucket:  Other
+		Total: 45
+		<=50K counts: 45
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: sex_data_slice
+	Slice Bucket:  Male
+		Total: 4355
+		<=50K counts: 4355
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: sex_data_slice
+	Slice Bucket:  Female
+		Total: 2158
+		<=50K counts: 2158
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: country_data_slice
+	Slice Bucket: North America
+		Total: 6000
+		<=50K counts: 6000
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: country_data_slice
+	Slice Bucket: Central and South America
+		Total: 126
+		<=50K counts: 126
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: country_data_slice
+	Slice Bucket: Europe
+		Total: 102
+		<=50K counts: 102
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: country_data_slice
+	Slice Bucket: Asia
+		Total: 138
+		<=50K counts: 138
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+
+Metrics for slice: country_data_slice
+	Slice Bucket: Other
+		Total: 147
+		<=50K counts: 147
+		>50K counts: 0
+		Precision: 0.0
+		Recall: 1.0
+		Fbeta: 0.0
+

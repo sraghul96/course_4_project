@@ -96,6 +96,19 @@ def slices_pipeline():
             print(f"\t\tFbeta: {fbeta}")
             print()
 
+            # Save the slice data to a TXT file
+            file_name = "starter/slice_output.txt"
+            with open(file_name, "a") as f:
+                f.write(f"Metrics for slice: {slice_name}\n")
+                f.write(f"\tSlice Bucket: {slice_key}\n")
+                f.write(f"\t\tTotal: {slice_value.shape[0]}\n")
+                f.write(f"\t\t<=50K counts: {slice_value[slice_value['salary_binary'] == 0].shape[0]}\n")
+                f.write(f"\t\t>50K counts: {slice_value[slice_value['salary_binary'] == 1].shape[0]}\n")
+                f.write(f"\t\tPrecision: {precision}\n")
+                f.write(f"\t\tRecall: {recall}\n")
+                f.write(f"\t\tFbeta: {fbeta}\n")
+                f.write("\n")
+
 
 if __name__ == "__main__":
     training_pipeline()
