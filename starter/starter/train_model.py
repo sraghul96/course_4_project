@@ -33,7 +33,7 @@ def training_pipeline():
     print("Data loaded successfully.", datetime.now())
 
     # Optional enhancement, use K-fold cross validation instead of a train-test split.
-    train, test = train_test_split(data, test_size=0.20, random_state=42)
+    train, test = train_test_split(data, test_size=0.20, random_state=42, stratify=data["salary"])
 
     cat_features = [
         "workclass",
