@@ -32,8 +32,10 @@ def training_pipeline():
     data = load_data()
     print("Data loaded successfully.", datetime.now())
 
-    # Optional enhancement, use K-fold cross validation instead of a train-test split.
-    train, test = train_test_split(data, test_size=0.20, random_state=42, stratify=data["salary"])
+    # Optional enhancement, use K-fold cross validation instead of a
+    # train-test split.
+    train, test = train_test_split(
+        data, test_size=0.20, random_state=42, stratify=data["salary"])
 
     cat_features = [
         "workclass",
@@ -50,7 +52,8 @@ def training_pipeline():
     )
 
     # Proces the test data with the process_data function.
-    X_test, y_test, _, _ = process_data(test, cat_features, label="salary", training=False, encoder=encoder, lb=lb)
+    X_test, y_test, _, _ = process_data(
+        test, cat_features, label="salary", training=False, encoder=encoder, lb=lb)
 
     # Train and save a model.
     model = train_model(X_train, y_train, fine_tuning=True)
@@ -63,7 +66,8 @@ def training_pipeline():
     pred = inference(model, X_test)
     copy_df = pd.DataFrame(test).copy()
     copy_df["pred"] = pd.Series(pred, index=copy_df.index)
-    copy_df["salary_binary"] = copy_df["salary"].apply(lambda x: 1 if x == ">50K" else 0)
+    copy_df["salary_binary"] = copy_df["salary"].apply(
+        lambda x: 1 if x == ">50K" else 0)
     global test_processed_dataset
     test_processed_dataset = copy_df
 
@@ -87,10 +91,13 @@ def slices_pipeline():
             y_slice = slice_value["salary_binary"]
             pred_slice = slice_value["pred"]
             # Compute metrics for the slice
-            precision, recall, fbeta = compute_model_metrics(y_slice, pred_slice)
+            precision, recall, fbeta = compute_model_metrics(
+                y_slice, pred_slice)
             print(f"\t\tTotal: {slice_value.shape[0]}\n")
-            print(f"\t\t<=50K counts: {slice_value[slice_value['salary_binary'] == 0].shape[0]}")
-            print(f"\t\t>50K counts: {slice_value[slice_value['salary_binary'] == 1].shape[0]}\n")
+            print(
+                f"\t\t<=50K counts: {slice_value[slice_value['salary_binary'] == 0].shape[0]}")
+            print(
+                f"\t\t>50K counts: {slice_value[slice_value['salary_binary'] == 1].shape[0]}\n")
             print(f"\t\tPrecision: {precision}")
             print(f"\t\tRecall: {recall}")
             print(f"\t\tFbeta: {fbeta}")
@@ -102,8 +109,10 @@ def slices_pipeline():
                 f.write(f"Metrics for slice: {slice_name}\n")
                 f.write(f"\tSlice Bucket: {slice_key}\n")
                 f.write(f"\t\tTotal: {slice_value.shape[0]}\n")
-                f.write(f"\t\t<=50K counts: {slice_value[slice_value['salary_binary'] == 0].shape[0]}\n")
-                f.write(f"\t\t>50K counts: {slice_value[slice_value['salary_binary'] == 1].shape[0]}\n")
+                f.write(
+                    f"\t\t<=50K counts: {slice_value[slice_value['salary_binary'] == 0].shape[0]}\n")
+                f.write(
+                    f"\t\t>50K counts: {slice_value[slice_value['salary_binary'] == 1].shape[0]}\n")
                 f.write(f"\t\tPrecision: {precision}\n")
                 f.write(f"\t\tRecall: {recall}\n")
                 f.write(f"\t\tFbeta: {fbeta}\n")

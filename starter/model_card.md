@@ -1,4 +1,7 @@
 # Model Card
+
+Github Link - https://github.com/sraghul96/course_4_project
+
 ## Model Details
 ### Model Type
 - **Algorithm**: Random Forest Classifier

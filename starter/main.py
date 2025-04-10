@@ -77,14 +77,14 @@ def predict(data: DataModel):
         "native-country",
     ]
     # Process the data
-    X, _, _, _ = process_data(df, categorical_features=cat_features, label=None, training=False, encoder=encoder, lb=lb)
+    X, _, _, _ = process_data(df, categorical_features=cat_features,
+                              label=None, training=False, encoder=encoder, lb=lb)
 
     # Make predictions
     preds = inference(model, X)
 
     # Convert predictions back to original labels
     preds = lb.inverse_transform(preds)
-
     return {"predictions": preds.tolist()}
 
 

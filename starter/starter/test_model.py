@@ -40,7 +40,8 @@ def test_train_model(get_model):
     Test the train_model function.
     """
     model = get_model
-    assert isinstance(model, RandomForestClassifier), "Model should be a RandomForestClassifier"
+    assert isinstance(
+        model, RandomForestClassifier), "Model should be a RandomForestClassifier"
 
 
 def test_inference(sample_data, get_model):
@@ -50,7 +51,8 @@ def test_inference(sample_data, get_model):
     _, _, X_test, y_test = sample_data
     model = get_model
     preds = inference(model, X_test)
-    assert len(preds) == len(X_test), "Number of predictions should match number of test samples"
+    assert len(preds) == len(
+        X_test), "Number of predictions should match number of test samples"
     assert all(np.isin(preds, [0, 1])), "Predictions should be binary (0 or 1)"
     assert isinstance(preds, np.ndarray), "Predictions should be a numpy array"
     assert preds.shape == (10,), "Predictions should have shape (10,)"

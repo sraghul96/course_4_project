@@ -7,7 +7,8 @@ client = TestClient(app)
 def test_read_root():
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"message": "Welcome to the FastAPI model inference API!"}
+    assert response.json() == {
+        "message": "Welcome to the FastAPI model inference API!"}
 
 
 def test_predict_less_than_50k():

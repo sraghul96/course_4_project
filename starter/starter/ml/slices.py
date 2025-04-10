@@ -23,8 +23,13 @@ def data_slices(data: pd.DataFrame, label: str) -> dict:
     # Define age buckets
     age_bins = [0, 18, 29, 44, 59, 100]
     age_labels = ["0-18", "19-29", "30-44", "45-59", "60+"]
-    data["age_data_slice"] = pd.cut(data["age"], bins=age_bins, labels=age_labels, right=True)
-    slices["age_data_slice"] = {label: data[data["age_data_slice"] == label] for label in age_labels}
+    data["age_data_slice"] = pd.cut(
+        data["age"],
+        bins=age_bins,
+        labels=age_labels,
+        right=True)
+    slices["age_data_slice"] = {
+        label: data[data["age_data_slice"] == label] for label in age_labels}
 
     # Define marital status buckets
     marital_status_mapping = {
@@ -44,12 +49,16 @@ def data_slices(data: pd.DataFrame, label: str) -> dict:
     }
 
     # Define Race buckets
-    data["race_data_slices"] = pd.Categorical(data["race"], categories=data["race"].unique())
-    slices["race_data_slice"] = {label: data[data["race_data_slices"] == label] for label in data["race"].unique()}
+    data["race_data_slices"] = pd.Categorical(
+        data["race"], categories=data["race"].unique())
+    slices["race_data_slice"] = {
+        label: data[data["race_data_slices"] == label] for label in data["race"].unique()}
 
     # Define Sex buckets
-    data["sex_data_slices"] = pd.Categorical(data["sex"], categories=data["sex"].unique())
-    slices["sex_data_slice"] = {label: data[data["sex_data_slices"] == label] for label in data["sex"].unique()}
+    data["sex_data_slices"] = pd.Categorical(
+        data["sex"], categories=data["sex"].unique())
+    slices["sex_data_slice"] = {
+        label: data[data["sex_data_slices"] == label] for label in data["sex"].unique()}
 
     # Define combined buckets for occupation and workclass
     # data["occupation_workclass_bucket"] = data["occupation"] + "_" + data["workclass"]
@@ -107,11 +116,12 @@ def data_slices(data: pd.DataFrame, label: str) -> dict:
     }
 
     country_mapping_space = country_mapping
-    country_mapping_space = {f" {k}": v for k, v in country_mapping_space.items()}
+    country_mapping_space = {
+        f" {k}": v for k,
+        v in country_mapping_space.items()}
 
     data["country_data_slices"] = data["native-country"].map(
-        lambda x: country_mapping_space[x] if x in country_mapping_space else "Other"
-    )
+        lambda x: country_mapping_space[x] if x in country_mapping_space else "Other")
     slices["country_data_slice"] = {
         label: data[data["country_data_slices"] == label] for label in country_mapping_space.values()
     }

@@ -1,8 +1,6 @@
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.model_selection import RandomizedSearchCV, GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import cross_val_score
-from datetime import datetime
 
 
 # Optional: implement hyperparameter tuning.
