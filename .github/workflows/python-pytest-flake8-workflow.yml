@@ -20,7 +20,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest flake8 pytest-cov pandas numpy scikit-learn
+        pip install pytest flake8 pytest-cov pandas numpy scikit-learn fastapi
 
     - name: Lint with flake8
       run: |
@@ -31,4 +31,4 @@ jobs:
         
     - name: Test with pytest
       run: |
-        pytest starter/starter --cov=. --cov-report=xml -v
+        pytest starter --cov=. --cov-report=xml -vv
