@@ -31,5 +31,5 @@ jobs:
         
     - name: Test with pytest
       run: |
-        pytest starter/stater --cov=. --cov-report=xml -vv
-        # pytest starter/test_api.py --cov=. --cov-report=xml -vv
+        pytest starter/stater --cov=. --cov-report=xml -v
+        # pytest starter/test_api.py --cov=. --cov-report=xml -v
