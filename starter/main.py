@@ -58,9 +58,9 @@ def predict(data: DataModel):
     Predict the salary based on the input data.
     """
     # Load the model and encoder
-    model = joblib.load("model/model.pkl")
-    encoder = joblib.load("model/encoder.pkl")
-    lb = joblib.load("model/label_binarizer.pkl")
+    model = joblib.load("starter/model/model.pkl")
+    encoder = joblib.load("starter/model/encoder.pkl")
+    lb = joblib.load("starter/model/label_binarizer.pkl")
 
     # Convert the input data to a DataFrame
     data_dict = data.model_dump(by_alias=True)
@@ -77,8 +77,7 @@ def predict(data: DataModel):
         "native-country",
     ]
     # Process the data
-    X, _, _, _ = process_data(df, categorical_features=cat_features,
-                              label=None, training=False, encoder=encoder, lb=lb)
+    X, _, _, _ = process_data(df, categorical_features=cat_features, label=None, training=False, encoder=encoder, lb=lb)
 
     # Make predictions
     preds = inference(model, X)
